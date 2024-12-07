@@ -1,0 +1,175 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #105d1f;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  margin: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+}
+
+h1#Title {
+  color:#b22222;
+  text-shadow: 7px 7px 20px #000;
+  font-family:monospace;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.groupDiv, .participantsDiv{
+  margin: 20px 0;
+}
+
+label{
+  font-weight: bold;
+  margin-right:10px;
+  color:#006400;
+}
+
+input {
+  padding: 10px;
+  border: 2px solid #006400;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+input:focus{
+  border-color: #b22222;
+  box-shadow: 0 0 8px rgba(178, 34, 34 0.8);
+}
+
+button {
+  background-color: #b22222;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff4500;
+  transform: scale(1.1);
+}
+
+#participantList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#participantList li {
+  margin: 5px 0;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #b22222;
+  border-radius: 5px;
+  color: #333;
+  font-size: 1rem;
+}
+
+
+.result {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #006400;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.result h3 {
+  color: #b22222;
+  margin-bottom: 10px;
+}
+
+.result p {
+  font-size: 1rem;
+  color: #333;
+}
+
+
+div {
+  text-align: center;
+}
+
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
