@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Secret Santa</title>
+  </head>
+
+  <body>
+    <h1 id="Title">Secret Santa</h1>
+    
+    <div class="groupDiv">
+      <label for="group">Nazwa grupy: </label>
+      <input type="text" id="groupUsername" placeholder="Nazwa grupy">
+    </div>
+    <div class="participantsDiv">
+      <label for="participantName">Imię uczestnika: </label>
+      <input type="text" id="participantName" placeholder="Imię uczestnika">
+      <button onclick="addParticipant()">Dodaj uczestnika</button>
+    </div>
+    <div>
+      <h3>Uczestnicy: </h3>
+      <ul id="participantList"></ul>
+    </div> 
+
+    <button onclick="drawForGroup(), getGroupAssignment()">Losowanie</button>
+    <div class="result" id="assignmentsResult">
+      <!--Wynik-->
+    </div>
+
+    <script type="module" src="/logic/index.ts"></script>
+  </body>
+</html>
