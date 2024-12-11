@@ -17,14 +17,14 @@
     <div class="participantsDiv">
       <label for="participantName">Imię uczestnika: </label>
       <input type="text" id="participantName" placeholder="Imię uczestnika">
-      <button onclick="addParticipant()">Dodaj uczestnika</button>
+      <button id="addParticipantButton">Dodaj uczestnika</button>
     </div>
     <div>
-      <h3>Uczestnicy: </h3>
+      <h3 id="participantText">Uczestnicy: </h3>
       <ul id="participantList"></ul>
     </div> 
 
-    <button onclick="drawForGroup(), getGroupAssignment()">Losowanie</button>
+    <button  id="drawButton">Losowanie</button>
     <div class="result" id="assignmentsResult">
       <!--Wynik-->
     </div>
