@@ -11,7 +11,7 @@ class Group {
   private participants: Participant[] = [];
   private assignments: Assignment[] = [];
 
-  constructor(name: string) {name}
+  constructor(name: string) {}
   addParticipant(name: string): void {
     if (!this.ParticipantExist(name)) {
       this.participants.push({ name });
@@ -47,7 +47,12 @@ class SecretSantaManager {
   addParticipantToGroup(groupName: string, participantName: string) {
     const group = this.groups.get(groupName);
     if (group) {
-      group.addParticipant(participantName);
+      const currentParticipants = group.getParticipants();
+      if(currentParticipants.length < 20){
+        group.addParticipant(participantName);
+      } else{
+        alert("Maks 20 uczestników (20).")
+      }
     } else {
       console.error(`Ta grupa ${groupName} nie istnieje :*`);
     }
@@ -97,10 +102,11 @@ function displayAssignments(groupName: string){
 }
 
 const manager = new SecretSantaManager();
+
 document.addEventListener("keydown", (event)=>{
   if(event.key === "Enter"){
-    const groupName = document.getElementById("groupUsername")?.value;
-    const participantName = document.getElementById("participantName")?.value;
+    const groupName = (document.getElementById("groupUsername") as HTMLInputElement).value;
+    const participantName = (document.getElementById("participantName") as HTMLInputElement).value;
     if(groupName && participantName){
     manager.createGroup(groupName);
     manager.addParticipantToGroup(groupName, participantName);
@@ -109,8 +115,8 @@ document.addEventListener("keydown", (event)=>{
   }
 });
 document.getElementById("addParticipantButton")?.addEventListener("click", () => {
-  const groupName = document.getElementById("groupUsername")?.value;
-  const participantName = document.getElementById("participantName")?.value;
+  const groupName = (document.getElementById("groupUsername") as HTMLInputElement).value;
+  const participantName = (document.getElementById("participantName")as HTMLInputElement).value;
   if(groupName && participantName){
     manager.createGroup(groupName);
     manager.addParticipantToGroup(groupName, participantName);
@@ -119,23 +125,13 @@ document.getElementById("addParticipantButton")?.addEventListener("click", () =>
 });
 
 document.getElementById("drawButton")?.addEventListener("click", () => {
-  const groupName = document.getElementById("groupUsername")?.value;
+  const groupName = (document.getElementById("groupUsername")as HTMLInputElement).value;
   if(groupName){
     manager.drawForGroup(groupName);
     displayAssignments(groupName);
   }
 });
 
-manager.addParticipantToGroup = function (groupName, participantName){
-  const group = this.groups.get(groupName);
-  if(group){
-    if(group.getParticipants().lenght < 20){
-      group.addParticipant({ name: participantName});
-    } else {
-      alert("Maks 20 uczestników (20).");
-    }
-  }
-};
 
 // const manager = new SecretSantaManager;
 // manager.createGroup("Grupa1");
