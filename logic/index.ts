@@ -131,12 +131,3 @@ document.getElementById("drawButton")?.addEventListener("click", () => {
     displayAssignments(groupName);
   }
 });
-
-
-// const manager = new SecretSantaManager;
-// manager.createGroup("Grupa1");
-// manager.addParticipantToGroup("Grupa1", "Szymon")
-// manager.addParticipantToGroup("Grupa1", "Antek")
-// //...
-// manager.drawForGroup("Grupa1")
-// console.log(`Wyniki dla: Grupa1`, manager.getGroupAssignment("Grupa1"))
