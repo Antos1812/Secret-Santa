@@ -97,6 +97,17 @@ function displayAssignments(groupName: string){
 }
 
 const manager = new SecretSantaManager();
+document.addEventListener("keydown", (event)=>{
+  if(event.key === "Enter"){
+    const groupName = document.getElementById("groupUsername")?.value;
+    const participantName = document.getElementById("participantName")?.value;
+    if(groupName && participantName){
+    manager.createGroup(groupName);
+    manager.addParticipantToGroup(groupName, participantName);
+    updateParticipantList(groupName);
+   }
+  }
+});
 document.getElementById("addParticipantButton")?.addEventListener("click", () => {
   const groupName = document.getElementById("groupUsername")?.value;
   const participantName = document.getElementById("participantName")?.value;
@@ -114,6 +125,17 @@ document.getElementById("drawButton")?.addEventListener("click", () => {
     displayAssignments(groupName);
   }
 });
+
+manager.addParticipantToGroup = function (groupName, participantName){
+  const group = this.groups.get(groupName);
+  if(group){
+    if(group.getParticipants().lenght < 20){
+      group.addParticipant({ name: participantName});
+    } else {
+      alert("Maks 20 uczestników (20).");
+    }
+  }
+};
 
 // const manager = new SecretSantaManager;
 // manager.createGroup("Grupa1");
