@@ -21,6 +21,7 @@ class Group {
     return this.participants.some(p => p.name === name);
   }
   draw() {
+    this.assignments = [];
     const shuffla = [...this.participants].sort(() => Math.random() - 0.5);
     for (let i = 0; i < shuffla.length; i++) {
       const giver = shuffla[i];
@@ -53,6 +54,7 @@ class SecretSantaManager {
       } else{
         alert("Maks 20 uczestników (20).")
       }
+      this.updateDrawButton(groupName);
     } else {
       console.error(`Ta grupa ${groupName} nie istnieje :*`);
     }
@@ -70,6 +72,21 @@ class SecretSantaManager {
   getGroupAssignment(groupName: string): Assignment[] {
     const group = this.groups.get(groupName);
     return group ? group.getAssignments() : [];
+  }
+  
+  updateDrawButton(groupName: string){
+    const drawButton = document.getElementById("drawButton") as HTMLButtonElement;
+    const group = this.groups.get(groupName);
+    if(drawButton && group){
+      const participantCount = group.getParticipants().length;
+      if(participantCount < 3){
+        drawButton.disabled = group.getParticipants().length < 3;
+        drawButton.style.backgroundColor = "#b2222262";
+      } else {
+          drawButton.disabled = false;
+          drawButton.style.backgroundColor = "#b22222";
+      }
+    } 
   }
 }
 
@@ -127,16 +144,15 @@ document.getElementById("addParticipantButton")?.addEventListener("click", () =>
 document.getElementById("drawButton")?.addEventListener("click", () => {
   const groupName = (document.getElementById("groupUsername")as HTMLInputElement).value;
   if(groupName){
-    manager.drawForGroup(groupName);
-    displayAssignments(groupName);
+    const group = manager.groups.get(groupName);
+    if(group){
+      const participantAmount = group.getParticipants().length;
+      if (participantAmount < 3){
+        alert("Minimum 3 uczestników w grupie (3).");
+        return;
+      }
+      manager.drawForGroup(groupName);
+      displayAssignments(groupName);
+    }
   }
-});
-
-
-// const manager = new SecretSantaManager;
-// manager.createGroup("Grupa1");
-// manager.addParticipantToGroup("Grupa1", "Szymon")
-// manager.addParticipantToGroup("Grupa1", "Antek")
-// //...
-// manager.drawForGroup("Grupa1")
-// console.log(`Wyniki dla: Grupa1`, manager.getGroupAssignment("Grupa1"))
+}); 
