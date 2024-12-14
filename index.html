@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <button id="ButtonTheme0" onclick="changeTheme()"><img id="Tree" src="UI/TreeLogo.png" width="32" height="32"></button>
     <h1 id="Title">Secret Santa</h1>
     <img id="Logo" src="/UI/SantaLogo.png" width="128" height="128">
     
@@ -18,7 +19,7 @@
     <div class="participantsDiv">
       <label for="participantName">Imię uczestnika: </label>
       <input type="text" id="participantName" placeholder="Imię uczestnika">
-      <button id="addParticipantButton">Dodaj uczestnika</button>
+      <button id="addParticipantButton" class="Button">Dodaj uczestnika</button>
       <p id="Description">Maksymalnie 20 uczestników w grupie.</p>   
     </div>
     <div>
@@ -26,7 +27,7 @@
       <ul id="participantList"></ul>
     </div> 
 
-    <button  id="drawButton">Losowanie</button>
+    <button  id="drawButton" >Losowanie</button>
     <div class="result" id="assignmentsResult">
       <!--Wynik-->
     </div>
