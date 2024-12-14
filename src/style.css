@@ -44,6 +44,15 @@ h1#Title {
   margin-top: 20px;
 }
 
+#Logo{
+  width: 128px;
+  height: 128px;
+  transition: all 0.3s ease;
+}
+#Logo:hover{
+  transform:scaleY(1.1), rotate(0.3deg);
+}
+
 .groupDiv, .participantsDiv{
   margin: 20px 0;
 }
@@ -81,6 +90,18 @@ button {
 button:hover {
   background-color: #ff4500;
   transform: scale(1.068) rotate(2.7deg);
+}
+
+#drawButton{
+  background-color: #b2222262;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
 }
 
 #participantList {
