@@ -53,6 +53,7 @@ class SecretSantaManager {
       } else{
         alert("Maks 20 uczestników (20).")
       }
+      this.updateDrawButton(groupName);
     } else {
       console.error(`Ta grupa ${groupName} nie istnieje :*`);
     }
@@ -70,6 +71,14 @@ class SecretSantaManager {
   getGroupAssignment(groupName: string): Assignment[] {
     const group = this.groups.get(groupName);
     return group ? group.getAssignments() : [];
+  }
+  
+  updateDrawButton(groupName: string){
+    const drawButton = document.getElementById("drawButton") as HTMLButtonElement;
+    const group = this.groups.get(groupName);
+    if(drawButton && group){
+      drawButton.disabled = group.getParticipants().length < 3;
+    }
   }
 }
 
@@ -127,7 +136,15 @@ document.getElementById("addParticipantButton")?.addEventListener("click", () =>
 document.getElementById("drawButton")?.addEventListener("click", () => {
   const groupName = (document.getElementById("groupUsername")as HTMLInputElement).value;
   if(groupName){
-    manager.drawForGroup(groupName);
-    displayAssignments(groupName);
+    const group = manager.groups.get(groupName);
+    if(group){
+      const participantAmount = group.getParticipants().length;
+      if (participantAmount < 3){
+        alert("Minimum 3 uczestników w grupie (3).");
+        return;
+      }
+      manager.drawForGroup(groupName);
+      displayAssignments(groupName);
+    }
   }
-});
+}); 
