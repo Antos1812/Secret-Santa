@@ -155,4 +155,16 @@ document.getElementById("drawButton")?.addEventListener("click", () => {
       displayAssignments(groupName);
     }
   }
-}); 
+});
+
+function changeTheme(): void {
+  const body = document.body;
+  const currentBackground: string = body.style.backgroundImage;
+
+  // Switch between two background colors
+  if (currentBackground === 'url("#f2f2f2")') {
+    body.style.backgroundImage = 'url("#226534")';
+  } else {
+    body.style.backgroundImage = 'url("#f2f2f2")';
+  }
+}
