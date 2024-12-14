@@ -21,6 +21,7 @@ class Group {
     return this.participants.some(p => p.name === name);
   }
   draw() {
+    this.assignments = [];
     const shuffla = [...this.participants].sort(() => Math.random() - 0.5);
     for (let i = 0; i < shuffla.length; i++) {
       const giver = shuffla[i];
@@ -77,8 +78,15 @@ class SecretSantaManager {
     const drawButton = document.getElementById("drawButton") as HTMLButtonElement;
     const group = this.groups.get(groupName);
     if(drawButton && group){
-      drawButton.disabled = group.getParticipants().length < 3;
-    }
+      const participantCount = group.getParticipants().length;
+      if(participantCount < 3){
+        drawButton.disabled = group.getParticipants().length < 3;
+        drawButton.style.backgroundColor = "#b2222262";
+      } else {
+          drawButton.disabled = false;
+          drawButton.style.backgroundColor = "#b22222";
+      }
+    } 
   }
 }
 
