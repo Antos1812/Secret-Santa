@@ -53,6 +53,30 @@ h1#Title {
   transform:scaleY(1.1), rotate(0.3deg);
 }
 
+#ButtonTheme0 {
+  background-color: transparent;
+  border-radius: 25%;
+  padding: 20px 15px;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 20px;
+  left: 25px;
+}
+#ButtonTheme0:hover{
+  transform:scaleX(1.1), rotate(0.3deg);
+}
+
+#Tree{
+  transition: all 0.4s ease-in-out;
+  box-shadow: inset;
+}
+#Tree:hover{
+  transform:scaleY(1.13);
+}
+
 .groupDiv, .participantsDiv{
   margin: 20px 0;
 }
@@ -75,7 +99,7 @@ input:focus{
   box-shadow: 0 0 8px rgba(178, 34, 34 0.8);
 }
 
-button {
+.Button {
   background-color: #b22222;
   color: #fff;
   border: none;
@@ -87,7 +111,7 @@ button {
   transition: all 0.3s ease;
 }
 
-button:hover {
+.Button:hover {
   background-color: #ff4500;
   transform: scale(1.068) rotate(2.7deg);
 }
